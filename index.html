@@ -24,7 +24,7 @@
             </select>
         </div>
         
-        <div id="inputFields" class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div id="inputFields"> <!-- class="grid grid-cols-1 gap-4 md:grid-cols-2" -->
             <!-- Input fields for MEA (Malt Extract Agar) -->
             <div id="meaInputs" class="mb-4">
                 <label for="waterAmountMEA" class="block font-medium">Water Amount (ML):</label>
@@ -51,19 +51,31 @@
                 <input type="number" id="waterAmountPDA" class="w-full px-2 py-1 border rounded-md">
             </div>
 
-            <div id="honeyInputs" class="input-group mb-4" style="display: none;">
-                <label for="waterAmountHoney" class="block font-medium">Water (ml): </label>
-                <input type="number" id="waterAmountHoney" class="w-full px-2 py-1 border rounded-md mb-2">
-                <label for="nutrientPercentageHoney" class="block font-medium">Nutrient (%): </label>
-                <input type="number" id="nutrientPercentageHoney" value="4" class="w-full px-2 py-1 border rounded-md mb-2">
+            <div id="honeyInputs" class="input-group mb-4 " style="display: none;">
+              <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <div>
+                  <label for="waterAmountHoney" class="block font-medium">Water (ml): </label>
+                  <input type="number" id="waterAmountHoney" class="w-full px-2 py-1 border rounded-md mb-2">
+                </div>
+                <div>
+                  <label for="nutrientPercentageHoney" class="block font-medium">Nutrient (%): </label>
+                  <input type="number" id="nutrientPercentageHoney" value="4" class="w-full px-2 py-1 border rounded-md mb-2">
+                </div>
+              </div>
             </div>
             <div id="honeyResult" class="result mb-4"></div>
 
             <div id="cocoInputs" class="input-group mb-4" style="display: none;">
-                <label for="cocoWeight" class="block font-medium">Coco Coir Weight (g): </label>
-                <input type="number" id="cocoWeight" class="w-full px-2 py-1 border rounded-md mb-2">
-                <label for="waterRatioCoco" class="block font-medium">Water Ratio: </label>
-                <input type="number" id="waterRatioCoco" value="3.7" class="w-full px-2 py-1 border rounded-md mb-2">
+              <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <div>
+                  <label for="cocoWeight" class="block font-medium">Coco Coir Weight (g): </label>
+                  <input type="number" id="cocoWeight" class="w-full px-2 py-1 border rounded-md mb-2">
+                </div>
+                <div>
+                  <label for="waterRatioCoco" class="block font-medium">Water Ratio: </label>
+                  <input type="number" id="waterRatioCoco" value="3.7" class="w-full px-2 py-1 border rounded-md mb-2">
+                </div>
+              </div>  
             </div>
             <div id="cocoResult" class="result mb-4"></div>
 
