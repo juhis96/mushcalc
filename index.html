@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Calculators</title>
+    <!-- Add Tailwind CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-semibold mb-4">Recipe Calculators</h1>
+        
+        <!-- Calculation options -->
+        <div class="mb-4">
+            <label for="calculationSelect" class="block font-medium">Select Calculation:</label>
+            <select id="calculationSelect" class="w-full px-2 py-1 border rounded-md">
+                <option value="mea">Malt Extract Agar / MEA (FDA M93)</option>
+                <option value="pda">Potato Dextrose Agar / PDA (FDA M127)</option>
+                <option value="oats">Oats Water Content</option>
+                <option value="coco">Coco Coir Hydration</option>
+                <option value="honey">Honey Liquid Culture</option>
+            </select>
+        </div>
+        
+        <div id="inputFields" class="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <!-- Input fields for MEA (Malt Extract Agar) -->
+            <div id="meaInputs" class="mb-4">
+                <label for="waterAmountMEA" class="block font-medium">Water Amount (ML):</label>
+                <input type="number" id="waterAmountMEA" class="w-full px-2 py-1 border rounded-md">
+            </div>
+            
+            <!-- Input fields for Oats Water Content -->
+            <div id="oatsInputs" class="mb-4 hidden">
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                    <div>
+                        <label for="oatsWeight" class="block font-medium">Oats Weight (g):</label>
+                        <input type="number" id="oatsWeight" class="w-full px-2 py-1 border rounded-md">
+                    </div>
+                    <div>
+                        <label for="hydrationPercentage" class="block font-medium">Hydration Percentage:</label>
+                        <input type="number" id="hydrationPercentage" class="w-full px-2 py-1 border rounded-md">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Input fields for PDA (Potato Dextrose Agar) -->
+            <div id="pdaInputs" class="mb-4 hidden">
+                <label for="waterAmountPDA" class="block font-medium">Water Amount (ML):</label>
+                <input type="number" id="waterAmountPDA" class="w-full px-2 py-1 border rounded-md">
+            </div>
+
+            <div id="honeyInputs" class="input-group mb-4" style="display: none;">
+                <label for="waterAmountHoney" class="block font-medium">Water (ml): </label>
+                <input type="number" id="waterAmountHoney" class="w-full px-2 py-1 border rounded-md mb-2">
+                <label for="nutrientPercentageHoney" class="block font-medium">Nutrient (%): </label>
+                <input type="number" id="nutrientPercentageHoney" value="4" class="w-full px-2 py-1 border rounded-md mb-2">
+            </div>
+            <div id="honeyResult" class="result mb-4"></div>
+
+            <div id="cocoInputs" class="input-group mb-4" style="display: none;">
+                <label for="cocoWeight" class="block font-medium">Coco Coir Weight (g): </label>
+                <input type="number" id="cocoWeight" class="w-full px-2 py-1 border rounded-md mb-2">
+                <label for="waterRatioCoco" class="block font-medium">Water Ratio: </label>
+                <input type="number" id="waterRatioCoco" value="3.7" class="w-full px-2 py-1 border rounded-md mb-2">
+            </div>
+            <div id="cocoResult" class="result mb-4"></div>
+
+            <!-- Checkbox for "Soft Agar" -->
+            <div class="mb-4" id="softAgarWrapper">
+                <label for="softAgarCheckbox" class="font-medium">
+                    <input type="checkbox" id="softAgarCheckbox" class="mr-2"> Soft Agar
+                </label>
+            </div>
+        
+        <!-- Result display -->
+        <div id="result" class="mt-4"></div>
+      </div>
+    </div>
+  <script src="src/script.js"></script>
+</body>
+</html>
