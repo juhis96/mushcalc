@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Calculators</title>
+    <!-- Add Tailwind CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-semibold mb-4">Recipe Calculators</h1>
+        
+        <!-- Calculation options -->
+        <div class="mb-4">
+            <label for="calculationSelect" class="block font-medium">Select Calculation:</label>
+            <select id="calculationSelect" class="w-full px-2 py-1 border rounded-md">
+                <option value="mea">Malt Extract Agar / MEA (FDA M93)</option>
+                <option value="pda">Potato Dextrose Agar / PDA (FDA M127)</option>
+                <option value="oats">Oats Water Content</option>
+            </select>
+        </div>
+        
+        <!-- Input fields for calculations -->
+        <div id="inputFields" class="grid grid-cols-2 gap-4">
+            <!-- Input fields for MEA (Malt Extract Agar) -->
+            <div id="meaInputs" class="mb-4">
+                <label for="waterAmountMEA" class="block font-medium">Water Amount (ML):</label>
+                <input type="number" id="waterAmountMEA" class="w-full px-2 py-1 border rounded-md">
+            </div>
+            
+            <!-- Input fields for Oats Water Content -->
+            <div id="oatsInputs" class="mb-4 hidden flex">
+                <div class="w-1/2 pr-2">
+                    <label for="oatsWeight" class="block font-medium">Oats Weight (g):</label>
+                    <input type="number" id="oatsWeight" class="w-full px-2 py-1 border rounded-md">
+                </div>
+                <div class="w-1/2 pl-2">
+                    <label for="hydrationPercentage" class="block font-medium">Hydration Percentage:</label>
+                    <input type="number" id="hydrationPercentage" class="w-full px-2 py-1 border rounded-md">
+                </div>
+            </div>
+            
+            <!-- Input fields for PDA (Potato Dextrose Agar) -->
+            <div id="pdaInputs" class="mb-4 hidden">
+                <label for="waterAmountPDA" class="block font-medium">Water Amount (ML):</label>
+                <input type="number" id="waterAmountPDA" class="w-full px-2 py-1 border rounded-md">
+            </div>
+        </div>
+
+        <!-- Checkbox for "Soft Agar" -->
+        <div class="mb-4">
+            <label for="softAgarCheckbox" class="block font-medium">
+                <input type="checkbox" id="softAgarCheckbox" class="mr-2"> Soft Agar
+            </label>
+        </div>
+        
+        <!-- Result display -->
+        <div id="result" class="mt-4"></div>
+    </div>
+  <script src="src/script.js"></script>
+</body>
+</html>
