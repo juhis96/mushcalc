@@ -7,6 +7,4 @@ Recipe Calculators:
 - No Soak / No Boil Oats (Spawn) Hydration
 - Coco Coir (Bulk) Hydration
 - Honey Liquid Culture
-
-Incoming Features:
 - Straw pellets (Bulk) Hydration
