@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const meaInputs = document.getElementById('meaInputs');
     const oatsInputs = document.getElementById('oatsInputs');
     const pdaInputs = document.getElementById('pdaInputs');
+    const strawInputs = document.getElementById('strawInputs');
     const softAgarWrapper = document.getElementById('softAgarWrapper');
     const resultDisplay = document.getElementById('result');
 
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initializeMEACalculator();
     initializeOatsCalculator();
     initializePDACalculator();
+    initializeStrawCalculator();
 
     calculationSelect.addEventListener('change', function () {
         // Clear previous calculations and input when changing the calculation type
@@ -24,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('softAgarCheckbox').checked = false;
 
         // Hide all input groups
-        [honeyInputs, cocoInputs, meaInputs, oatsInputs, pdaInputs].forEach(section => {
+        [honeyInputs, cocoInputs, meaInputs, oatsInputs, pdaInputs, strawInputs].forEach(section => {
             section.style.display = 'none';
         });
 
@@ -44,6 +46,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 break;
             case 'pda':
                 pdaInputs.style.display = 'block';
+                break;
+            case 'straw':
+                strawInputs.style.display = 'block';
                 break;
         }
 
@@ -92,6 +97,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
         [cocoWeight, waterRatioCoco].forEach(input => {
             input.addEventListener('input', calculateCoco);
+        });
+    }
+
+    function initializeStrawCalculator() {
+        const strawWeight = document.getElementById('strawWeight');
+        const waterRatioStraw = document.getElementById('waterRatioStraw');
+
+        function calculateStraw() {
+            const weight = parseFloat(strawWeight.value);
+            const waterRatio = parseFloat(waterRatioStraw.value);
+            if (!isNaN(weight) && !isNaN(waterRatio)) {
+                const waterNeeded = weight * waterRatio;
+                resultDisplay.innerHTML = `For ${weight} g of straw pellets: ${waterNeeded.toFixed(2)} g/ml of water is needed.`;
+            } else {
+                resultDisplay.innerHTML = '';
+            }
+        }
+
+        [strawWeight, waterRatioStraw].forEach(input => {
+            input.addEventListener('input', calculateStraw);
         });
     }
 
