@@ -20,6 +20,7 @@
                 <option value="pda">Potato Dextrose Agar / PDA (FDA M127)</option>
                 <option value="oats">Oats Water Content</option>
                 <option value="coco">Coco Coir Hydration</option>
+                <option value="straw">Straw Pellets Hydration</option>
                 <option value="honey">Honey Liquid Culture</option>
             </select>
         </div>
@@ -73,11 +74,25 @@
                 </div>
                 <div>
                   <label for="waterRatioCoco" class="block font-medium">Water Ratio: </label>
-                  <input type="number" id="waterRatioCoco" value="3.7" class="w-full px-2 py-1 border rounded-md mb-2">
+                  <input type="number" id="waterRatioCoco" value="3.5" class="w-full px-2 py-1 border rounded-md mb-2">
                 </div>
               </div>  
             </div>
             <div id="cocoResult" class="result mb-4"></div>
+
+            <div id="strawInputs" class="input-group mb-4" style="display: none;">
+              <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <div>
+                  <label for="strawWeight" class="block font-medium">Straw Pellets Weight (g): </label>
+                  <input type="number" id="strawWeight" class="w-full px-2 py-1 border rounded-md mb-2">
+                </div>
+                <div>
+                  <label for="waterRatioStraw" class="block font-medium">Water Ratio: </label>
+                  <input type="number" id="waterRatioStraw" value="3" class="w-full px-2 py-1 border rounded-md mb-2">
+                </div>
+              </div>  
+            </div>
+            <div id="strawResult" class="result mb-4"></div>
 
             <!-- Checkbox for "Soft Agar" -->
             <div class="mb-4" id="softAgarWrapper">
