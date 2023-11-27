@@ -120,34 +120,37 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    function initializeMEACalculator() {
-        const waterAmountMEA = document.getElementById('waterAmountMEA');
-        const softAgarCheckbox = document.getElementById('softAgarCheckbox');
+function initializeMEACalculator() {
+    const waterAmountMEA = document.getElementById('waterAmountMEA');
+    const softAgarCheckbox = document.getElementById('softAgarCheckbox');
+    const platesResultDisplay = document.getElementById('platesResult');
 
-        function calculateMEA() {
-            // Ensure that MEA is the selected calculation before proceeding
-            if(calculationSelect.value !== 'mea') return;
+    function calculateMEA() {
+        // Ensure that MEA is the selected calculation before proceeding
+        if (calculationSelect.value !== 'mea') return;
 
-            console.log("Calculating MEA...");
+        console.log("Calculating MEA...");
 
-            const waterAmount = parseFloat(waterAmountMEA.value);
-            const meAmount = (30 / 1000) * waterAmount;  
-            let agarAmount = (20 / 1000) * waterAmount;  
+        const waterAmount = parseFloat(waterAmountMEA.value);
+        const meAmount = (30 / 1000) * waterAmount;
+        let agarAmount = (20 / 1000) * waterAmount;
 
-            if (softAgarCheckbox.checked) {
-                console.log("Soft Agar Checked for MEA...");
-                agarAmount = (15 / 1000) * waterAmount;  
-            }
-
-            const result = `MEA (Malt Extract Agar) Recipe:\n${meAmount.toFixed(2)} g Malt extract\n${agarAmount.toFixed(2)} g Agar\n${waterAmount} ML Distilled water`;
-
-            resultDisplay.innerHTML = `<pre>${result}</pre>`;
+        if (softAgarCheckbox.checked) {
+            console.log("Soft Agar Checked for MEA...");
+            agarAmount = (15 / 1000) * waterAmount;
         }
 
-        [waterAmountMEA, softAgarCheckbox].forEach(input => {
-            input.addEventListener('input', calculateMEA);
-        });
+        const plates = Math.ceil((40 / 1000) * waterAmount); // Calculate the number of plates and round up
+
+        const result = `MEA (Malt Extract Agar) Recipe:\n${meAmount.toFixed(2)} g Malt extract\n${agarAmount.toFixed(2)} g Agar\n${waterAmount} ML Distilled water\nNumber of Plates: ${plates}`;
+
+        resultDisplay.innerHTML = `<pre>${result}</pre>`;
     }
+
+    [waterAmountMEA, softAgarCheckbox].forEach(input => {
+        input.addEventListener('input', calculateMEA);
+    });
+}
 
     function initializePDACalculator() {
         const waterAmountPDA = document.getElementById('waterAmountPDA');
